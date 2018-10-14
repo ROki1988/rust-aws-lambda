@@ -110,7 +110,9 @@ function = ${
 
 // Constant type ---------------------------------------------------------------
 constant_kw = _{ "const" }
-constant_def = ${ constant_kw ~ whitespace+ ~ ident ~ whitespace* ~ "=" ~ whitespace* ~ (!newline ~ any)+ ~ newline  }
+constant_spec = ${ ident ~ whitespace* ~ "=" ~ whitespace* ~ (!newline ~ any)+ }
+constant_multi = ${ "(" ~ newline ~ ( whitespace* ~ constant_spec ~ newline )+ ~ whitespace* ~ ")" }
+constant_def = ${ constant_kw ~ whitespace+ ~ ( constant_spec  | constant_multi ) ~ newline }
 
 // Top-level type --------------------------------------------------------------
 all = _{ constant_def | function | package_def | import | import_multiple | struct_def | type_alias | any_comment }
