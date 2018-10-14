@@ -9,6 +9,12 @@ pub struct Base64Data(
     Vec<u8>,
 );
 
+impl Base64Data {
+    pub fn as_slice(&self) -> &[u8] {
+        self.0.as_slice()
+    }
+}
+
 /// Timestamp with millisecond precision.
 #[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
 pub struct MillisecondTimestamp(
