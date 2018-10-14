@@ -10,8 +10,15 @@ pub struct Base64Data(
 );
 
 impl Base64Data {
+    pub fn new(data: Vec<u8>) -> Base64Data {
+        Base64Data (data)
+    }
+
     pub fn as_slice(&self) -> &[u8] {
         self.0.as_slice()
+    }
+    pub fn into_vec(self) -> Vec<u8> {
+        self.0
     }
 }
 
