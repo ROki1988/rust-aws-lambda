@@ -197,6 +197,8 @@ pub struct SimpleEmailVerdict {
     pub status: String,
 }
 
+pub type SimpleEmailDispositionValue = String;
+
 #[cfg(test)]
 mod test {
     use super::*;
